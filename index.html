@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Turm von Hanoi</title>
+        <link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <body>
+        <section class="intructions">
+            <h1>Turm von Hanoi</h1>
+            <h3>Spiel Regeln:</h3>
+            <p>
+                Ziel des Spieles: Alle Scheiben vom Turm ganz links sollen auf
+                den Turm ganz rechts bewegt werden. Bedingungen:
+            </p>
+            <ol>
+                <li>Sie können nur eine Scheibe pro Zug verschieben.</li>
+                <li>
+                    Eine grössere Scheibe darf nie auf einer kleineren Scheibe
+                    liegen.
+                </li>
+            </ol>
+            <p>Zum Verschieben einer Scheibe:</p>
+            <ul>
+                <li>
+                    Klicken Sie zuerst auf den Turm, von dem die oberste Scheibe
+                    entfernt werden soll.
+                </li>
+                <li>
+                    Klicken Sie dann auf den Turm, auf den die Scheibe platziert
+                    werden soll.
+                </li>
+            </ul>
+        </section>
+        <!-- <canvas></canvas> -->
+        <section class="canvas">
+            <div class="container-tower">
+                <div id="tower-A"></div>
+                <div id="tower-B"></div>
+                <div id="tower-C"></div>
+            </div>
+            <div class="ground">
+                <p>A</p>
+                <p>B</p>
+                <p>C</p>
+            </div>
+        </section>
+        <section class="game-controll">
+            <div class="step-counter">
+                <p>Anzahl der Züge:</p>
+            </div>
+            <div class="step-counter">
+                <p>Minimale Anzahl der Züge:</p>
+            </div>
+            <div class="step-counter">
+                <p>Stoppuhr:</p>
+                <a href="#">Start</a>
+                <a href="#">Reset</a>
+            </div>
+            <div class="step-counter">
+                <p>Reset</p>
+            </div>
+            <div class="step-counter">
+                <p>Lösung</p>
+            </div>
+        </section>
+    </body>
+</html>
