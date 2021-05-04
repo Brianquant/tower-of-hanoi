@@ -1,6 +1,3 @@
-// Events
-// document.addEventListener("click", movePeg_3);
-
 // Set Peg to default position
 function defaultPosition_1(xAxis, yAxis) {
     const peg = document.getElementById("peg-1");
@@ -24,6 +21,8 @@ function defaultPosition_3(xAxis, yAxis) {
 defaultPosition_1(50, 240);
 defaultPosition_2(85, 285);
 defaultPosition_3(125, 327);
+
+// Move possibilities
 
 function movePeg_3(xAxis, yAxis) {
     const peg_3 = document.getElementById("peg-3");
