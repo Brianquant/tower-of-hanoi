@@ -23,9 +23,38 @@ a {
     box-shadow: 4px 5px 6px rgba($color: #000000, $alpha: 0.2);
 }
 
+#scope-tower {
+    display: flex;
+    justify-content: center;
+}
+
 .canvas {
     display: flex;
     flex-direction: column;
+
+    #peg-1 {
+        width: 15rem;
+        height: 3rem;
+        background-color: gold;
+        border-radius: 50%;
+        border: 1px solid #000;
+    }
+
+    #peg-2 {
+        width: 10rem;
+        height: 2.5rem;
+        background-color: gold;
+        border-radius: 50%;
+        border: 1px solid #000;
+    }
+
+    #peg-3 {
+        width: 5rem;
+        height: 2rem;
+        background-color: gold;
+        border-radius: 50%;
+        border: 1px solid #000;
+    }
 
     .container-tower {
         display: flex;

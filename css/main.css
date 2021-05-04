@@ -25,6 +25,15 @@ a {
           box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.2);
 }
 
+#scope-tower {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .canvas {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,6 +42,30 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.canvas #peg-1 {
+  width: 15rem;
+  height: 3rem;
+  background-color: gold;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.canvas #peg-2 {
+  width: 10rem;
+  height: 2.5rem;
+  background-color: gold;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.canvas #peg-3 {
+  width: 5rem;
+  height: 2rem;
+  background-color: gold;
+  border-radius: 50%;
+  border: 1px solid #000;
 }
 
 .canvas .container-tower {
