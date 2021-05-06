@@ -1,3 +1,11 @@
+// Define discs
+const disc_1 = document.getElementById("disc-1");
+const disc_2 = document.getElementById("disc-2");
+const disc_3 = document.getElementById("disc-3");
+console.log(disc_1.dataset.indexNumber);
+console.log(disc_2.dataset.indexNumber);
+console.log(disc_3.dataset.indexNumber);
+
 // Move possibilities
 
 function moveDisc_3(xAxis, yAxis) {
