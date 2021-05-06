@@ -72,11 +72,19 @@ a {
             background-color: blue;
             width: 1rem;
             height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
         }
         #tower-C {
             background-color: purple;
             width: 1rem;
             height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
         }
     }
 
