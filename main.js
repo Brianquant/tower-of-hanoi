@@ -7,32 +7,23 @@ const tower_A = document.getElementById("tower-A");
 const tower_B = document.getElementById("tower-B");
 const tower_C = document.getElementById("tower-C");
 
-// Copy disc
+// Select disc
+function selectDisc(disc) {
+    disc.addEventListener("click", function () {
+        w3.addStyle(disc, "background-color", "red");
+    });
+}
+selectDisc(disc_3);
 
-// Move possibilities
-
-function moveDisc_3(xAxis, yAxis) {
-    const disc_3 = document.getElementById("disc-3");
-    let discIsClicked = false;
-
-    disc_3.addEventListener("click", function () {
-        discIsClicked = true;
-        disc_3.style.position = "absolute";
-        disc_3.style.left = xAxis + "px";
-        disc_3.style.top = yAxis + "px";
-        console.log(discIsClicked);
+// move selected disc from A to B
+function move_A_to_B(disc, tower) {
+    tower.addEventListener("click", function () {
+        w3.addStyle(disc, "background-color", "gold");
+        const cloneDisc = disc.cloneNode(true);
+        tower.appendChild(cloneDisc);
+        disc.remove();
+        console.log(tower);
     });
 }
 
-moveDisc_3(224, 400);
-
-// Add disc to Peg B
-function copyDisc() {
-    tower_B.addEventListener("click", function () {
-        const cloneDisc = disc_3.cloneNode(true);
-        tower_B.appendChild(cloneDisc);
-        console.log(tower_B);
-    });
-}
-
-copyDisc();
+move_A_to_B(disc_3, tower_B);
