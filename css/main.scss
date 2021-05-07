@@ -1,3 +1,5 @@
+// Add svg for pegs
+
 body {
     box-sizing: border-box;
     padding: 0;
@@ -32,6 +34,10 @@ a {
     display: flex;
     flex-direction: column;
 
+    .selected {
+        margin-bottom: auto;
+    }
+
     #disc-1 {
         width: 15rem;
         height: 3rem;
@@ -49,7 +55,7 @@ a {
     }
 
     #disc-3 {
-        width: 5rem;
+        width: 5em;
         height: 2rem;
         background-color: gold;
         // border-radius: 50%;
@@ -58,33 +64,26 @@ a {
 
     .container-tower {
         display: flex;
-        justify-content: space-around;
-        #tower-A {
-            background-color: #000000;
-            width: 1rem;
+        // justify-content: space-around;
+        .tower {
+            // Make borders even
+            width: 220px;
             height: 20rem;
+            border: 5px solid red;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            flex-direction: column-reverse;
+            // justify-content: flex-end;
             align-items: center;
-        }
-        #tower-B {
-            background-color: blue;
-            width: 1rem;
-            height: 20rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        #tower-C {
-            background-color: purple;
-            width: 1rem;
-            height: 20rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
+
+            &-A {
+                background-color: #000000;
+            }
+            &-B {
+                background-color: blue;
+            }
+            &-C {
+                background-color: purple;
+            }
         }
     }
 
