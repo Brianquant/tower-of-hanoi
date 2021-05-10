@@ -3,19 +3,21 @@ const handleClick = (event, tower) => {
 
     // Scheiben verschieben
 
-    // Selektieren #1wie #2Wo #3Was
+    // Select Disc
 
-    //
-    const discs = tower.querySelectorAll(".disc");
+    // select all discs
+    const discs = tower.querySelectorAll("#disc");
     console.log("discs", discs);
+
+    // Get last last disc of the peg
     const idx = discs.length - 1;
+    // console.log("idx", idx);
     if (discs.length === 0) {
         return;
     }
     const lastDisc = discs[idx];
-
     console.log("lastDisc", lastDisc);
-    console.log("event", event.target);
+    // console.log("event", event.target);
 
     if (lastDisc.classList.contains("selected")) {
         lastDisc.classList.remove("selected");
@@ -32,25 +34,21 @@ towers.forEach((tower) => {
     tower.addEventListener("click", (event) => handleClick(event, tower));
 });
 
-// function moveDisc(tower) {
-//     tower.addEventListener("click", function () {
-//         while (tower_A.childNodes.length > 0) {
-//             tower.appendChild(tower_A.childNodes[0]);
-//             console.log(tower);
-//         }
-//     });
-// }
+// Add discs
+function addDiscs() {
+    const tower_x = document.querySelector("#tower-A");
+    const incrementDisc = document.getElementById("addDisc");
+    incrementDisc.addEventListener("click", function () {
+        const div = document.createElement("div");
+        div.className = "disc-4";
+        const id = document.createAttribute("id");
+        id.value = "disc";
+        div.setAttributeNode(id);
+        tower_x.insertBefore(div, tower_x.firstChild);
 
-// moveDisc(tower_B);
+        console.log(tower_x);
+        // e.preventDefault();
+    });
+}
 
-// function move_B_to_C(disc, tower) {
-//     tower.addEventListener("click", function () {
-//         w3.addStyle(disc, "background-color", "gold");
-//         const cloneDisc = disc.cloneNode(true);
-//         tower.appendChild(cloneDisc);
-//         disc.remove();
-//         console.log(tower);
-//     });
-// }
-
-// move_A_to_B(disc_3, tower_C);
+addDiscs();

@@ -38,25 +38,30 @@ a {
         margin-bottom: auto;
     }
 
-    #disc-1 {
-        width: 15rem;
-        height: 3rem;
+    .disc-1 {
+        width: 120px;
+        height: 40px;
         background-color: gold;
         // border-radius: 50%;
         border: 1px solid #000;
     }
-
-    #disc-2 {
-        width: 10rem;
-        height: 2.5rem;
+    .disc-2 {
+        width: 100px;
+        height: 40px;
         background-color: gold;
         // border-radius: 50%;
         border: 1px solid #000;
     }
-
-    #disc-3 {
-        width: 5em;
-        height: 2rem;
+    .disc-3 {
+        width: 80px;
+        height: 40px;
+        background-color: gold;
+        // border-radius: 50%;
+        border: 1px solid #000;
+    }
+    .disc-4 {
+        width: 140px;
+        height: 40px;
         background-color: gold;
         // border-radius: 50%;
         border: 1px solid #000;
@@ -74,12 +79,17 @@ a {
             flex-direction: column-reverse;
             // justify-content: flex-end;
             align-items: center;
+            background-image: url(/imgs/peg.svg);
+            background-position: center;
+            background-repeat: no-repeat;
 
             &-A {
                 background-color: #000000;
             }
             &-B {
                 background-color: blue;
+                border-right: 0;
+                border-left: 0;
             }
             &-C {
                 background-color: purple;
@@ -94,5 +104,26 @@ a {
 
         display: flex;
         justify-content: space-around;
+    }
+}
+
+.game-controll {
+    .add-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        button {
+            width: 100px;
+            padding: 1em;
+            font-size: 1.3rem;
+
+            &.btn-plus {
+                background-color: green;
+            }
+            &.btn-minus {
+                background-color: red;
+            }
+        }
     }
 }

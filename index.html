@@ -38,9 +38,9 @@
         <section class="canvas">
             <div class="container-tower" id="container-tower">
                 <div class="tower tower-A" id="tower-A">
-                    <div class="disc" id="disc-1" data-index-number="1"></div>
-                    <div class="disc" id="disc-2" data-index-number="2"></div>
-                    <div class="disc" id="disc-3" data-index-number="3"></div>
+                    <div class="disc-1" id="disc" data-index-number="1"></div>
+                    <div class="disc-2" id="disc" data-index-number="2"></div>
+                    <div class="disc-3" id="disc" data-index-number="3"></div>
                 </div>
                 <div class="tower tower-B" id="tower-B"></div>
                 <div class="tower tower-C" id="tower-C"></div>
@@ -52,22 +52,10 @@
             </div>
         </section>
         <section class="game-controll">
-            <div class="step-counter">
-                <p>Anzahl der Züge:</p>
-            </div>
-            <div class="step-counter">
-                <p>Minimale Anzahl der Züge:</p>
-            </div>
-            <div class="step-counter">
-                <p>Stoppuhr:</p>
-                <a href="#">Start</a>
-                <a href="#">Reset</a>
-            </div>
-            <div class="step-counter">
-                <p>Reset</p>
-            </div>
-            <div class="step-counter">
-                <p>Lösung</p>
+            <div class="add-container">
+                <p>Anzahl der Scheiben:</p>
+                <button class="btn-plus" id="addDisc">+</button>
+                <button class="btn-minus" id="removeDisc">-</button>
             </div>
         </section>
     </body>

@@ -48,23 +48,30 @@ a {
   margin-bottom: auto;
 }
 
-.canvas #disc-1 {
-  width: 15rem;
-  height: 3rem;
+.canvas .disc-1 {
+  width: 120px;
+  height: 40px;
   background-color: gold;
   border: 1px solid #000;
 }
 
-.canvas #disc-2 {
-  width: 10rem;
-  height: 2.5rem;
+.canvas .disc-2 {
+  width: 100px;
+  height: 40px;
   background-color: gold;
   border: 1px solid #000;
 }
 
-.canvas #disc-3 {
-  width: 5em;
-  height: 2rem;
+.canvas .disc-3 {
+  width: 80px;
+  height: 40px;
+  background-color: gold;
+  border: 1px solid #000;
+}
+
+.canvas .disc-4 {
+  width: 140px;
+  height: 40px;
   background-color: gold;
   border: 1px solid #000;
 }
@@ -89,6 +96,9 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-image: url(/imgs/peg.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .canvas .container-tower .tower-A {
@@ -97,6 +107,8 @@ a {
 
 .canvas .container-tower .tower-B {
   background-color: blue;
+  border-right: 0;
+  border-left: 0;
 }
 
 .canvas .container-tower .tower-C {
@@ -112,5 +124,32 @@ a {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.game-controll .add-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.game-controll .add-container button {
+  width: 100px;
+  padding: 1em;
+  font-size: 1.3rem;
+}
+
+.game-controll .add-container button.btn-plus {
+  background-color: green;
+}
+
+.game-controll .add-container button.btn-minus {
+  background-color: red;
 }
 /*# sourceMappingURL=main.css.map */
