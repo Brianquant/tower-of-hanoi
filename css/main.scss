@@ -1,4 +1,6 @@
-// Add svg for pegs
+// Define css vars
+
+$smaller-disc: 10px;
 
 body {
     box-sizing: border-box;
@@ -38,34 +40,34 @@ a {
         margin-bottom: auto;
     }
 
-    .disc-1 {
-        width: 120px;
+    .disc-style {
+        width: 200px;
         height: 40px;
         background-color: gold;
         // border-radius: 50%;
         border: 1px solid #000;
     }
-    .disc-2 {
-        width: 100px;
-        height: 40px;
-        background-color: gold;
-        // border-radius: 50%;
-        border: 1px solid #000;
-    }
-    .disc-3 {
-        width: 80px;
-        height: 40px;
-        background-color: gold;
-        // border-radius: 50%;
-        border: 1px solid #000;
-    }
-    .disc-4 {
-        width: 140px;
-        height: 40px;
-        background-color: gold;
-        // border-radius: 50%;
-        border: 1px solid #000;
-    }
+    // .disc-2 {
+    //     width: 100px;
+    //     height: 40px;
+    //     background-color: gold;
+    //     // border-radius: 50%;
+    //     border: 1px solid #000;
+    // }
+    // .disc-3 {
+    //     width: 80px;
+    //     height: 40px;
+    //     background-color: gold;
+    //     // border-radius: 50%;
+    //     border: 1px solid #000;
+    // }
+    // .disc-4 {
+    //     width: 140px;
+    //     height: 40px;
+    //     background-color: gold;
+    //     // border-radius: 50%;
+    //     border: 1px solid #000;
+    // }
 
     .container-tower {
         display: flex;
@@ -80,7 +82,7 @@ a {
             // justify-content: flex-end;
             align-items: center;
             background-image: url(/imgs/peg.svg);
-            background-position: center;
+            background-position: bottom;
             background-repeat: no-repeat;
 
             &-A {

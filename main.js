@@ -1,10 +1,5 @@
 const handleClick = (event, tower) => {
     // const tower = event.target;
-
-    // Scheiben verschieben
-
-    // Select Disc
-
     // select all discs
     const discs = tower.querySelectorAll("#disc");
     console.log("discs", discs);
@@ -17,7 +12,7 @@ const handleClick = (event, tower) => {
     }
     const lastDisc = discs[idx];
     console.log("lastDisc", lastDisc);
-    // console.log("event", event.target);
+    console.log("event", event.target);
 
     if (lastDisc.classList.contains("selected")) {
         lastDisc.classList.remove("selected");
@@ -26,29 +21,40 @@ const handleClick = (event, tower) => {
     }
 };
 const towers = document.querySelectorAll("#container-tower > .tower");
-// Scheiben dynamisch anlegen
-
 // Erkläre Bug: lastDisc = undefinded
 console.log("towers", towers);
 towers.forEach((tower) => {
     tower.addEventListener("click", (event) => handleClick(event, tower));
 });
 
-// Add discs
-function addDiscs() {
-    const tower_x = document.querySelector("#tower-A");
+function decrementWidth(width) {
+    return width - 10 + "px";
+}
+
+decrementWidth();
+
+(function addDisc() {
+    const discs = document.querySelectorAll("#disc");
+    console.log("discs", discs);
+
+    // Get last last disc of the peg
+    const idx = discs.length - 1;
+    console.log("idx_stack", idx);
+
+    const lastDisc = discs[idx];
+    console.log("lastdiscINStack", lastDisc);
+
+    const init_tower = document.querySelector("#tower-A");
     const incrementDisc = document.getElementById("addDisc");
+    console.log(incrementDisc);
     incrementDisc.addEventListener("click", function () {
         const div = document.createElement("div");
-        div.className = "disc-4";
+        div.className = "disc-style";
         const id = document.createAttribute("id");
         id.value = "disc";
         div.setAttributeNode(id);
-        tower_x.insertBefore(div, tower_x.firstChild);
-
-        console.log(tower_x);
-        // e.preventDefault();
+        div.style.setProperty("width", decrementWidth(lastDisc.clientWidth));
+        init_tower.appendChild(div);
+        console.log(init_tower);
     });
-}
-
-addDiscs();
+})();
