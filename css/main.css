@@ -48,7 +48,7 @@ a {
   margin-bottom: auto;
 }
 
-.canvas .disc-style {
+.canvas .disc {
   width: 200px;
   height: 40px;
   background-color: gold;
@@ -69,9 +69,12 @@ a {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

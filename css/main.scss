@@ -40,7 +40,7 @@ a {
         margin-bottom: auto;
     }
 
-    .disc-style {
+    .disc {
         width: 200px;
         height: 40px;
         background-color: gold;
@@ -78,8 +78,8 @@ a {
             height: 20rem;
             border: 5px solid red;
             display: flex;
-            flex-direction: column-reverse;
-            // justify-content: flex-end;
+            flex-direction: column;
+            justify-content: flex-end;
             align-items: center;
             background-image: url(/imgs/peg.svg);
             background-position: bottom;

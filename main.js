@@ -1,16 +1,13 @@
 const handleClick = (event, tower) => {
     // const tower = event.target;
     // select all discs
-    const discs = tower.querySelectorAll("#disc");
+    const discs = tower.querySelectorAll(".disc");
     console.log("discs", discs);
 
-    // Get last last disc of the peg
-    const idx = discs.length - 1;
-    // console.log("idx", idx);
     if (discs.length === 0) {
         return;
     }
-    const lastDisc = discs[idx];
+    const lastDisc = discs[0];
     console.log("lastDisc", lastDisc);
     console.log("event", event.target);
 
@@ -31,30 +28,44 @@ function decrementWidth(width) {
     return width - 10 + "px";
 }
 
-decrementWidth();
+function createDisc(width) {
+    const div = document.createElement("div");
+    div.className = "disc";
+    div.style.setProperty("width", width);
+    return div;
+}
 
-(function addDisc() {
-    const discs = document.querySelectorAll("#disc");
+function addDisc(tower, disc) {
+    tower.prepend(disc);
+    console.log("addDisc", tower);
+}
+
+function getTopDisc(tower) {
+    const topDisc = tower.querySelector(".disc");
+    console.log("topDisc", topDisc);
+    return topDisc;
+}
+
+const addDiscBtn = document.getElementById("addDisc");
+console.log(addDiscBtn);
+addDiscBtn.addEventListener("click", function () {
+    const tower = document.querySelector("#tower-A");
+    const newDisc = createDisc(decrementWidth(getTopDisc(tower).clientWidth));
+    addDisc(tower, newDisc);
+});
+
+function removeDisc(tower) {
+    const discs = tower.querySelectorAll(".disc");
     console.log("discs", discs);
+    const lastDisc = discs[0];
+    lastDisc.parentElement.removeChild(lastDisc);
+    console.log("removeLastDisc", lastDisc);
+}
 
-    // Get last last disc of the peg
-    const idx = discs.length - 1;
-    console.log("idx_stack", idx);
-
-    const lastDisc = discs[idx];
-    console.log("lastdiscINStack", lastDisc);
-
-    const init_tower = document.querySelector("#tower-A");
-    const incrementDisc = document.getElementById("addDisc");
-    console.log(incrementDisc);
-    incrementDisc.addEventListener("click", function () {
-        const div = document.createElement("div");
-        div.className = "disc-style";
-        const id = document.createAttribute("id");
-        id.value = "disc";
-        div.setAttributeNode(id);
-        div.style.setProperty("width", decrementWidth(lastDisc.clientWidth));
-        init_tower.appendChild(div);
-        console.log(init_tower);
-    });
-})();
+const removeDiscBtn = document.getElementById("removeDisc");
+console.log("removeDisc", removeDiscBtn);
+removeDiscBtn.addEventListener("click", function () {
+    const tower = document.querySelector("#tower-A");
+    const TopDisc = getTopDisc(tower);
+    removeDisc(tower, TopDisc);
+});
