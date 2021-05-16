@@ -27,36 +27,6 @@ towers.forEach((tower) => {
     tower.addEventListener("click", (event) => handleClick(event, tower));
 });
 
-function currentTower() {
-    const listOfTower = document.querySelectorAll("#container-tower > .tower");
-    console.log("listOfTower", listOfTower);
-    // const selectedTower = getTopDisc()
-    const towerOne = listOfTower[0];
-    const towerTwo = listOfTower[1];
-    console.log("tower2", towerTwo);
-    const towerThree = listOfTower[2];
-
-    // const discs = document.querySelectorAll(".disc");
-    // const lastDisc = discs[0];
-    // console.log("currentLastDisc", lastDisc);
-
-    if (towerOne) {
-        console.log("Tower A gets clicked");
-    } else if (towerTwo) {
-        console.log("Tower B gets clicked");
-    } else if (towerThree) {
-        console.log("Tower C gets clicked");
-    } else {
-        console.log("error");
-    }
-}
-
-const towerScope = document.querySelector("#container-tower");
-console.log("towerScope", towerScope);
-towerScope.addEventListener("click", function () {
-    currentTower();
-});
-
 function decrementWidth(width) {
     return width - 10 + "px";
 }
@@ -101,4 +71,42 @@ removeDiscBtn.addEventListener("click", function () {
     const tower = document.querySelector("#tower-A");
     const TopDisc = getTopDisc(tower);
     removeDisc(tower, TopDisc);
+});
+
+function currentTower() {
+    const listOfTower = document.querySelectorAll("#container-tower > .tower");
+    console.log("listOfTower", listOfTower);
+    // const selectedTower = getTopDisc()
+    const towerOne = document.getElementById("tower-A");
+    towerOne.addEventListener("click", function () {
+        console.log("Tower A gets clicked");
+    });
+    const towerTwo = document.getElementById("tower-B");
+    towerTwo.addEventListener("click", function () {
+        console.log("Tower B gets clicked");
+    });
+    const towerThree = document.getElementById("tower-C");
+    towerThree.addEventListener("click", function () {
+        console.log("Tower C gets clicked");
+    });
+
+    // const discs = document.querySelectorAll(".disc");
+    // const lastDisc = discs[0];
+    // console.log("currentLastDisc", lastDisc);
+
+    // if (towerOne) {
+
+    // } else if (towerTwo) {
+    //     console.log("Tower B gets clicked");
+    // } else if (towerThree) {
+    //     console.log("Tower C gets clicked");
+    // } else {
+    //     console.log("error");
+    // }
+}
+
+const towerScope = document.querySelector("#container-tower");
+console.log("towerScope", towerScope);
+towerScope.addEventListener("click", function () {
+    currentTower();
 });
