@@ -8,8 +8,11 @@ const handleClick = (event, tower) => {
         return;
     }
     const lastDisc = discs[0];
+    const getDisc = event.target;
+    console.log("getDisc", getDisc);
     console.log("lastDisc", lastDisc);
-    console.log("event", event.target);
+
+    // console.log("event", event.target);
 
     if (lastDisc.classList.contains("selected")) {
         lastDisc.classList.remove("selected");
@@ -22,6 +25,36 @@ const towers = document.querySelectorAll("#container-tower > .tower");
 console.log("towers", towers);
 towers.forEach((tower) => {
     tower.addEventListener("click", (event) => handleClick(event, tower));
+});
+
+function currentTower() {
+    const listOfTower = document.querySelectorAll("#container-tower > .tower");
+    console.log("listOfTower", listOfTower);
+    // const selectedTower = getTopDisc()
+    const towerOne = listOfTower[0];
+    const towerTwo = listOfTower[1];
+    console.log("tower2", towerTwo);
+    const towerThree = listOfTower[2];
+
+    // const discs = document.querySelectorAll(".disc");
+    // const lastDisc = discs[0];
+    // console.log("currentLastDisc", lastDisc);
+
+    if (towerOne) {
+        console.log("Tower A gets clicked");
+    } else if (towerTwo) {
+        console.log("Tower B gets clicked");
+    } else if (towerThree) {
+        console.log("Tower C gets clicked");
+    } else {
+        console.log("error");
+    }
+}
+
+const towerScope = document.querySelector("#container-tower");
+console.log("towerScope", towerScope);
+towerScope.addEventListener("click", function () {
+    currentTower();
 });
 
 function decrementWidth(width) {
