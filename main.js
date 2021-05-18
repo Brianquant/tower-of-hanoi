@@ -31,9 +31,18 @@ function decrementWidth(width) {
     return width - 10 + "px";
 }
 
+function incrementIndex(index) {
+    return parseInt(index) + 1;
+}
+
 function createDisc(width) {
+    const targetIndex = document.querySelector(".disc");
     const div = document.createElement("div");
     div.className = "disc";
+    const dataIndex = document.createAttribute("data-index-number");
+    dataIndex.value = incrementIndex(targetIndex.dataset.indexNumber);
+    console.log("targetIndex", targetIndex);
+    div.setAttributeNode(dataIndex);
     div.style.setProperty("width", width);
     return div;
 }
@@ -73,40 +82,23 @@ removeDiscBtn.addEventListener("click", function () {
     removeDisc(tower, TopDisc);
 });
 
-function currentTower() {
-    const listOfTower = document.querySelectorAll("#container-tower > .tower");
-    console.log("listOfTower", listOfTower);
-    // const selectedTower = getTopDisc()
-    const towerOne = document.getElementById("tower-A");
-    towerOne.addEventListener("click", function () {
-        console.log("Tower A gets clicked");
-    });
-    const towerTwo = document.getElementById("tower-B");
-    towerTwo.addEventListener("click", function () {
-        console.log("Tower B gets clicked");
-    });
-    const towerThree = document.getElementById("tower-C");
-    towerThree.addEventListener("click", function () {
-        console.log("Tower C gets clicked");
-    });
+const towerOne = document.getElementById("tower-A");
+towerOne.addEventListener("click", function () {
+    console.log("Tower A gets clicked");
+});
 
-    // const discs = document.querySelectorAll(".disc");
-    // const lastDisc = discs[0];
-    // console.log("currentLastDisc", lastDisc);
-
-    // if (towerOne) {
-
-    // } else if (towerTwo) {
-    //     console.log("Tower B gets clicked");
-    // } else if (towerThree) {
-    //     console.log("Tower C gets clicked");
-    // } else {
-    //     console.log("error");
-    // }
+function getSelectedDisc(tower) {
+    const discs = document.querySelectorAll(".disc");
+    const lastDisc = discs[0];
+    tower.appendChild(lastDisc);
 }
 
-const towerScope = document.querySelector("#container-tower");
-console.log("towerScope", towerScope);
-towerScope.addEventListener("click", function () {
-    currentTower();
+const towerTwo = document.getElementById("tower-B");
+towerTwo.addEventListener("click", function () {
+    const receiveDisc = getSelectedDisc(towerTwo);
+    console.log("receiveDisc", receiveDisc);
+});
+const towerThree = document.getElementById("tower-C");
+towerThree.addEventListener("click", function () {
+    console.log("Tower C gets clicked");
 });
