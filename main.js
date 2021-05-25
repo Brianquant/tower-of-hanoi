@@ -5,14 +5,26 @@ function selectDisc(tower) {
     const lastDisc = discs[0];
     // Put Disc in clipboard
     clipBoard = lastDisc;
+
     console.log("clipBoard", clipBoard);
 }
 
-function dropDisc(tower) {
+function dropDisc(tower, lastDisc) {
+    const discs = tower.querySelectorAll(".disc");
+    const clipBoardWidth = clipBoard.clientWidth;
+    const lastDiscWidth = lastDisc.clientWidth;
+    console.log("discsWidth", clipBoardWidth);
     // Take disc from clipboard
-
+    if (clipBoard === null) {
+        return;
+    }
+    if (discs.length === 0) {
+        return tower.append(clipBoard);
+        // compare width clipboard to last disc in tower
+    } else if (clipBoardWidth < lastDiscWidth) {
+        return tower.append(clipBoard);
+    }
     // Drop Disc on tower
-    tower.append(clipBoard);
 }
 
 const handleClick = (event, tower) => {
@@ -23,12 +35,10 @@ const handleClick = (event, tower) => {
 
     const discs = tower.querySelectorAll(".disc");
     console.log("discs", discs);
-
-    if (discs.length === 0) {
-        return dropDisc(targetTower);
-    }
-
     const lastDisc = discs[0];
+
+    dropDisc(targetTower, lastDisc);
+
     console.log("lastDisc", lastDisc);
     if (lastDisc.classList.contains("selected")) {
         lastDisc.classList.remove("selected");
@@ -37,11 +47,6 @@ const handleClick = (event, tower) => {
         lastDisc.classList.add("selected");
         selectDisc(tower);
     }
-
-    // const targetTower = select.closest(".tower");
-    // console.log("targetTower", targetTower);
-
-    // dropDisc(tower);
 };
 const towers = document.querySelectorAll("#container-tower > .tower");
 // Erkläre Bug: lastDisc = undefinded
