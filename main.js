@@ -9,20 +9,29 @@ function selectDisc(tower) {
     console.log("clipBoard", clipBoard);
 }
 
-function dropDisc(tower, lastDisc) {
+function dropDisc(tower) {
     const discs = tower.querySelectorAll(".disc");
-    const clipBoardWidth = clipBoard.clientWidth;
-    const lastDiscWidth = lastDisc.clientWidth;
-    console.log("discsWidth", clipBoardWidth);
     // Take disc from clipboard
     if (clipBoard === null) {
         return;
     }
-    if (discs.length === 0) {
-        return tower.append(clipBoard);
-        // compare width clipboard to last disc in tower
-    } else if (clipBoardWidth < lastDiscWidth) {
-        return tower.append(clipBoard);
+    switch (discs.length) {
+        case 0:
+            return tower.prepend(clipBoard);
+            break;
+        case 1:
+            return tower.prepend(clipBoard);
+            break;
+        case 2:
+            return tower.prepend(clipBoard);
+        case 3:
+            return tower.prepend(clipBoard);
+            break;
+        case 4:
+            return tower.prepend(clipBoard);
+            break;
+        default:
+            return;
     }
     // Drop Disc on tower
 }
@@ -36,10 +45,10 @@ const handleClick = (event, tower) => {
     const discs = tower.querySelectorAll(".disc");
     console.log("discs", discs);
     const lastDisc = discs[0];
-
-    dropDisc(targetTower, lastDisc);
-
     console.log("lastDisc", lastDisc);
+
+    dropDisc(targetTower);
+
     if (lastDisc.classList.contains("selected")) {
         lastDisc.classList.remove("selected");
         clipBoard = null;
@@ -52,11 +61,7 @@ const towers = document.querySelectorAll("#container-tower > .tower");
 // Erkläre Bug: lastDisc = undefinded
 console.log("towers", towers);
 towers.forEach((tower) => {
-    tower.addEventListener(
-        "click",
-        (event) => handleClick(event, tower),
-        false
-    );
+    tower.addEventListener("click", (event) => handleClick(event, tower));
 });
 
 function decrementWidth(width) {
