@@ -1,65 +1,47 @@
+// Set default value
 let clipBoard = null;
-function selectDisc(tower) {
-    // Get Disc from tower
-    const discs = tower.querySelectorAll(".disc");
-    const lastDisc = discs[0];
-    // Put Disc in clipboard
-    clipBoard = lastDisc;
-
-    console.log("clipBoard", clipBoard);
-}
-
-function dropDisc(tower) {
-    const discs = tower.querySelectorAll(".disc");
-    // Take disc from clipboard
-    if (clipBoard === null) {
-        return;
-    }
-    switch (discs.length) {
-        case 0:
-            return tower.prepend(clipBoard);
-            break;
-        case 1:
-            return tower.prepend(clipBoard);
-            break;
-        case 2:
-            return tower.prepend(clipBoard);
-        case 3:
-            return tower.prepend(clipBoard);
-            break;
-        case 4:
-            return tower.prepend(clipBoard);
-            break;
-        default:
-            return;
-    }
-    // Drop Disc on tower
-}
 
 const handleClick = (event, tower) => {
-    const select = event.currentTarget;
-    console.log("select", select);
-    const targetTower = select.closest(".tower");
-    console.log("targetTower", targetTower);
+    // check for disc
+    if (clipBoard !== null) {
+        // Drop disc on tower
+        tower.prepend(clipBoard);
+    }
 
+    // tower = event.target; provide all discs
     const discs = tower.querySelectorAll(".disc");
     console.log("discs", discs);
+    // If tower has no discs, then return an empty array
+    if (discs.length === 0) {
+        return;
+    }
+    // Get last disc of tower
     const lastDisc = discs[0];
-    console.log("lastDisc", lastDisc);
-
-    dropDisc(targetTower);
-
+    console.log("lastDisc", lastDisc, lastDisc.dataset.indexNumber);
+    // If Statement checks for class selected
     if (lastDisc.classList.contains("selected")) {
+        // remove class selected from last disc
         lastDisc.classList.remove("selected");
+        // Reset clipboard value
         clipBoard = null;
+        console.log("remove selected", lastDisc, "clipboard", clipBoard);
     } else {
+        // add class selected and disc moves to the top
         lastDisc.classList.add("selected");
-        selectDisc(tower);
+        // store last disc in clipboard
+        clipBoard = lastDisc;
+        console.log(
+            "added selected",
+            lastDisc,
+            "clipboard",
+            clipBoard.dataset.indexNumber
+        );
     }
 };
+// The div container-tower targets all divs with the class name towers
 const towers = document.querySelectorAll("#container-tower > .tower");
-// Erkläre Bug: lastDisc = undefinded
 console.log("towers", towers);
+
 towers.forEach((tower) => {
     tower.addEventListener("click", (event) => handleClick(event, tower));
 });
