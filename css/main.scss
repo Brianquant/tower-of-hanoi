@@ -1,7 +1,3 @@
-// Define css vars
-
-$smaller-disc: 10px;
-
 body {
     box-sizing: border-box;
     padding: 0;
@@ -47,31 +43,10 @@ a {
         // border-radius: 50%;
         border: 1px solid #000;
     }
-    // .disc-2 {
-    //     width: 100px;
-    //     height: 40px;
-    //     background-color: gold;
-    //     // border-radius: 50%;
-    //     border: 1px solid #000;
-    // }
-    // .disc-3 {
-    //     width: 80px;
-    //     height: 40px;
-    //     background-color: gold;
-    //     // border-radius: 50%;
-    //     border: 1px solid #000;
-    // }
-    // .disc-4 {
-    //     width: 140px;
-    //     height: 40px;
-    //     background-color: gold;
-    //     // border-radius: 50%;
-    //     border: 1px solid #000;
-    // }
 
     .container-tower {
         display: flex;
-        // justify-content: space-around;
+        justify-content: center;
         .tower {
             // Make borders even
             width: 220px;
@@ -105,27 +80,28 @@ a {
         background-color: gray;
 
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
     }
 }
 
 .game-controll {
-    .add-container {
+    text-align: center;
+    .btn-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
 
         button {
-            width: 100px;
+            width: 70px;
             padding: 1em;
             font-size: 1.3rem;
 
-            &.btn-plus {
-                background-color: green;
-            }
-            &.btn-minus {
-                background-color: red;
-            }
+            // &.btn-plus {
+            //     background-color: green;
+            // }
+            // &.btn-minus {
+            //     background-color: red;
+            // }
         }
     }
 }

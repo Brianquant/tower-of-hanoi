@@ -4,16 +4,17 @@ let clipBoard = null;
 const handleClick = (event, tower) => {
     // check for disc
     if (clipBoard !== null) {
+        const discs = tower.querySelectorAll(".disc");
+        const lastDisc = discs[0];
+        if (
+            discs.length !== 0 &&
+            clipBoard.dataset.indexNumber < lastDisc.dataset.indexNumber
+        ) {
+            return;
+        }
         tower.prepend(clipBoard);
+        console.log("prepend", tower);
     }
-    // const towerWidth = tower.clientWidth;
-
-    // console.log("tower width", towerWidth);
-    // if (clipBoardWidth < towerWidth) {
-    //     // Drop disc on tower
-    //     tower.prepend(clipBoard);
-    //     console.log("clipBoard width", clipBoard.clientWidth);
-    // }
     // tower = event.target; provide all discs
     const discs = tower.querySelectorAll(".disc");
     console.log("discs", discs);
@@ -25,7 +26,7 @@ const handleClick = (event, tower) => {
 
     // Get last disc of tower
     const lastDisc = discs[0];
-    console.log("lastDisc", lastDisc, lastDisc.dataset.indexNumber);
+    // console.log("lastDisc", lastDisc, lastDisc.dataset.indexNumber);
 
     // If Statement checks for class selected
     if (lastDisc.classList.contains("selected")) {
@@ -35,20 +36,13 @@ const handleClick = (event, tower) => {
         clipBoard = null;
 
         console.log("remove selected", lastDisc, "clipboard", clipBoard);
+        // Refactor
     } else {
         // add class selected and disc moves to the top
         lastDisc.classList.add("selected");
         // store last disc in clipboard
         clipBoard = lastDisc;
-        // let clipBoardWidth = clipBoard.clientWidth;
-        // console.log("clipBoardIdx", clipBoardIdx);
-
-        console.log(
-            "added selected",
-            lastDisc,
-            "clipboard",
-            clipBoard.dataset.indexNumber
-        );
+        console.log("clipboard", clipBoard);
     }
 };
 // The div container-tower targets all divs with the class name towers
@@ -56,6 +50,7 @@ const towers = document.querySelectorAll("#container-tower > .tower");
 console.log("towers", towers);
 
 towers.forEach((tower) => {
+    // console.log("tower-array", tower);
     tower.addEventListener("click", (event) => handleClick(event, tower));
 });
 
