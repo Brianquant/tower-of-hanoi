@@ -73,7 +73,12 @@ function createDisc(width) {
 }
 
 function addDisc(tower, disc) {
-    tower.prepend(disc);
+    const discs = tower.querySelectorAll(".disc");
+    if(discs.length < 5) {
+        tower.prepend(disc);
+    } else {
+        return;
+    }
     console.log("addDisc", tower);
 }
 
